@@ -23,12 +23,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image:
-          - mcr.microsoft.com/devcontainers/base:debian
-          - mcr.microsoft.com/devcontainers/base:ubuntu
-          - debian:bookworm-slim
+        includes:
+          - image: mcr.microsoft.com/devcontainers/base:debian
+          - image: mcr.microsoft.com/devcontainers/base:ubuntu
+            options: '{ "version": "3.27.2" }'
+          - image: debian:bookworm-slim
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - run: npm install -g @devcontainers/cli
-      - run: bash test.sh ${{ matrix.image }}
+      - run: bash test.sh "$IMAGE" "$OPTIONS"
+        env:
+          IMAGE: ${{ matrix.image }}
+          OPTIONS: ${{ matrix.options }}
