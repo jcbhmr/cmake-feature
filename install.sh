@@ -4,7 +4,10 @@ source lib.sh
 
 check_packages wget
 
-find_version_from_git_tags VERSION https://github.com/cli/cli
+if [[ -z $VERSION || $VERSION == latest ]]; then
+  # TODO: Fetch latest version
+  VERSION='3.27.2'
+fi
 
 mkdir -p /tmp/cmake
 pushd /tmp/cmake
