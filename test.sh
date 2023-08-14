@@ -12,7 +12,7 @@ cat <<EOF >.devcontainer/devcontainer.json
   }
 }
 EOF
-ln -s "$feature_dir" "$PWD/.devcontainer/$feature_id"
+rsync -av "$feature_dir" "$PWD/.devcontainer/$feature_id"
 devcontainer up --workspace-folder .
 devcontainer exec --workspace-folder . cmake --version
 echo "TODO: Kill container after test"
