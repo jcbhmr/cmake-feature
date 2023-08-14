@@ -5,7 +5,7 @@ temp_dir=$(mktemp -d)
 trap 'rm -rf "$temp_dir"' SIGINT SIGTERM ERR EXIT
 pushd "$temp_dir"
 mkdir -p .devcontainer
-cat <<EOF >.devcontainer/devcontainer.json
+cat <<EOF | tee .devcontainer/devcontainer.json
 {
   "image": "${1:-'mcr.microsoft.com/devcontainers/base:debian'}",
   "features": {
