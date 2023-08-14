@@ -19,13 +19,22 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  test-feature:
+  list-tests:
+    outputs:
+      test-paths: ${{ steps.test-paths.outputs.test-paths }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - id: test-paths
+        run: |
+          test_paths=$(ls test/*.sh | jq -Rsc 'split("\n")[:-1]')
+          echo "test-paths=$test_paths" >$GITHUB_OUTPUT
+  run-tests:
+    needs: list-tests
     strategy:
       fail-fast: false
       matrix:
-        test-path:
-          - test/ubuntu.sh
-          - test/debian-slim.sh
+        test-path: ${{ fromJSON(needs.list-tests.outputs.test-paths) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
