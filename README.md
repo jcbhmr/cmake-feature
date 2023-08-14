@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <a href="https://devcontainers.community/features-cmake/">Docs</a>
+  <a href="https://devcontainers.community/features-cmake/">Website</a>
   | <a href="https://github.com/devcontainers-community/features-cmake">GitHub</a>
   | <a href="https://devcontainers.community/features/">Feature collection</a>
 </p>
