@@ -7,7 +7,7 @@
 <div align="center">
 
 <p>
-  <img width="600" src="https://i.imgur.com/hwiPvLS.png" />
+  <img width="500" src="https://i.imgur.com/hwiPvLS.png" />
 </p>
 
 <p>
@@ -28,6 +28,16 @@
 
 &mdash; [CMake](https://cmake.org/)
 
+This Dev Container Feature will install CMake using the official installer `.sh`
+script into the `/usr/local` folder. This should place it on your `$PATH` no
+problem! 🚀 Happy coding!
+
+![Codespaces](https://img.shields.io/static/v1?style=for-the-badge&message=Codespaces&color=181717&logo=GitHub&logoColor=FFFFFF&label=)
+![Devcontainers](https://img.shields.io/static/v1?style=for-the-badge&message=Devcontainers&color=2496ED&logo=Docker&logoColor=FFFFFF&label=)
+
+To use this feature, all you need to do is add it to your `devcontainer.json`
+like this:
+
 ```jsonc
 // devcontainer.json
 {
@@ -37,15 +47,12 @@
 }
 ```
 
-This Dev Container Feature will install CMake using the official installer `.sh`
-script into the `/usr/local` folder. This should place it on your `$PATH` no
-problem! 🚀 If you're curious about CMake, here's some quick introduction stuff
-to get you started:
-
-- [CMake Tutorial | CMake](https://cmake.org/cmake/help/latest/guide/tutorial/index.html)
-- [Get started with CMake Tools on Linux](https://code.visualstudio.com/docs/cpp/cmake-linux)
+❓ Don't know what this ☝ means? Check out [this VS Code blog post].
 
 ## Options
 
 - **`version`:** Choose a specific version to install. The default is `latest`.
   If specified, this should be a full `X.Y.Z` version number.
+
+<!-- prettier-ignore -->
+[this vs code blog post]: https://code.visualstudio.com/blogs/2022/09/15/dev-container-features
