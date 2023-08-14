@@ -5,13 +5,13 @@ pushd "$(mktemp -d)"
 mkdir -p .devcontainer
 cat <<EOF >.devcontainer/devcontainer.json
 {
-  "image": "debian:bookworm-slim",
+  "image": "${1:-'mcr.microsoft.com/devcontainers/base:debian'}",
   "features": {
     "./feature": {}
   }
 }
 EOF
 ln -s "$feature_dir" "$PWD/.devcontainer/feature"
-devcontainer up
-devcontainer exec cmake --version
+devcontainer up --workspace-folder .
+devcontainer exec --workspace-folder . cmake --version
 echo "TODO: Kill container after test"
