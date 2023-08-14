@@ -2,7 +2,9 @@
 set -ex
 feature_dir=$PWD
 feature_id=$(jq -r .id devcontainer-feature.json)
-pushd "$(mktemp -d)"
+temp_dir=$(mktemp -d)
+trap 'rm -rf "$temp_dir"' SIGINT SIGTERM ERR EXIT
+pushd "$temp_dir"
 mkdir -p .devcontainer
 cat <<EOF >.devcontainer/devcontainer.json
 {
@@ -12,7 +14,8 @@ cat <<EOF >.devcontainer/devcontainer.json
   }
 }
 EOF
-rsync -av "$feature_dir" "$PWD/.devcontainer/$feature_id"
+rsync -av --exclude .git "$feature_dir" "$PWD/.devcontainer/$feature_id"
+tree
 devcontainer up --workspace-folder .
 devcontainer exec --workspace-folder . cmake --version
 echo "TODO: Kill container after test"
