@@ -1,6 +1,5 @@
 #!/bin/bash
 set -ex
-tree -a
 feature_dir=$PWD
 temp_dir=$(mktemp -d)
 trap 'rm -rf "$temp_dir"' SIGINT SIGTERM ERR EXIT
@@ -14,7 +13,7 @@ cat <<EOF >.devcontainer/devcontainer.json
   }
 }
 EOF
-rsync -av --exclude .git "$feature_dir" "$PWD/.devcontainer/feature"
+rsync -av --exclude .git "$feature_dir/" "$PWD/.devcontainer/feature/"
 tree -a
 devcontainer up --workspace-folder .
 devcontainer exec --workspace-folder . cmake --version
