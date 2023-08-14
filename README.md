@@ -25,7 +25,7 @@
 // devcontainer.json
 {
   "features": {
-    "ghcr.io/devcontainers-community/features/cmake:1": {}
+    "ghcr.io/devcontainers-community/features/cmake": {}
   }
 }
 ```

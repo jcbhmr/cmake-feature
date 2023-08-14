@@ -17,6 +17,6 @@ cat <<EOF | tee .devcontainer/devcontainer.json
 EOF
 rsync -av --exclude .git "$feature_dir/" "$PWD/.devcontainer/feature/"
 tree -a
-devcontainer up --workspace-folder .
+container_id=$(devcontainer up --workspace-folder . | jq -r .containerId)
 devcontainer exec --workspace-folder . cmake --version
-echo "TODO: Kill container after test"
+docker kill "$container_id"
