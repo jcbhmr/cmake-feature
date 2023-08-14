@@ -1,0 +1,22 @@
+{
+  "id": "cmake",
+  "version": "0.1.0",
+  "name": "CMake",
+  "documentationURL": "https://devcontainers.community/features-cmake/",
+  "licenseURL": "https://github.com/devcontainers-community/features-cmake/blob/main/LICENSE",
+  "description": "🍰 Installs the CMake build tool",
+  "options": {
+    "version": {
+      "type": "string",
+      "default": "latest",
+      "proposals": [
+        "latest",
+        "3.27.2"
+      ],
+      "description": "Choose a specific version to install. The default is 'latest'. If specified, this should be a full 'X.Y.Z' version number."
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
+}
