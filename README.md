@@ -21,7 +21,7 @@
 
 ## Usage
 
-```json
+```jsonc
 // devcontainer.json
 {
   "features": {
