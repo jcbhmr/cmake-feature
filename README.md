@@ -30,7 +30,9 @@
 
 This Dev Container Feature will install CMake using the official installer `.sh`
 script into the `/usr/local` folder. This should place it on your `$PATH` no
-problem! 🚀 Happy coding!
+problem! 🚀
+
+## Usage
 
 ![Codespaces](https://img.shields.io/static/v1?style=for-the-badge&message=Codespaces&color=181717&logo=GitHub&logoColor=FFFFFF&label=)
 ![Devcontainers](https://img.shields.io/static/v1?style=for-the-badge&message=Devcontainers&color=2496ED&logo=Docker&logoColor=FFFFFF&label=)
@@ -49,7 +51,7 @@ like this:
 
 ❓ Don't know what this ☝ means? Check out [this VS Code blog post].
 
-## Options
+### Options
 
 - **`version`:** Choose a specific version to install. The default is `latest`.
   If specified, this should be a full `X.Y.Z` version number.
