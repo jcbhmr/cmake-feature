@@ -1,3 +1,5 @@
+[⬅️ Back to feature collection](https://devcontainers.community/features/)
+
 # CMake Dev Container Feature
 
 🍰 Installs the CMake build tool
@@ -8,10 +10,11 @@
   <img width="600" src="https://i.imgur.com/hwiPvLS.png" />
 </p>
 
-<!-- prettier-ignore -->
-[Docs](https://devcontainers.community/features-cmake/)
-| [GitHub](https://github.com/devcontainers-community/features-cmake)
-| [Feature collection](https://devcontainers.community/features/)
+<p>
+  <a href="https://devcontainers.community/features-cmake/">Docs</a>
+  | <a href="https://github.com/devcontainers-community/features-cmake">GitHub</a>
+  | <a href="https://devcontainers.community/features/">Feature collection</a>
+</p>
 
 </div>
 
