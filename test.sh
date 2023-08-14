@@ -1,5 +1,7 @@
 #!/bin/bash
 set -ex
+[[ -n $1 ]] && image=$1 || image='mcr.microsoft.com/devcontainers/base:debian'
+[[ -n $2 ]] && options=$2 || options='{}'
 feature_dir=$PWD
 temp_dir=$(mktemp -d)
 trap 'rm -rf "$temp_dir"' SIGINT SIGTERM ERR EXIT
@@ -7,9 +9,9 @@ pushd "$temp_dir"
 mkdir -p .devcontainer
 cat <<EOF | tee .devcontainer/devcontainer.json
 {
-  "image": "${1:-'mcr.microsoft.com/devcontainers/base:debian'}",
+  "image": "$image",
   "features": {
-    "./feature": ${2:-'{}'}
+    "./feature": $options
   }
 }
 EOF
