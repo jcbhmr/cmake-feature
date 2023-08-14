@@ -1,9 +1,9 @@
 #!/bin/bash
 set -ex
-id=$(basename "$BASH_SOURCE")
-mkdir -p .cache/$id/.devcontainer
-ln -s . .cache/$id/.devcontainer/feature
-cat <<EOF >.cache/$id/.devcontainer/devcontainer.json
+feature_dir=$PWD
+pushd "$(mktemp -d)"
+mkdir -p .devcontainer
+cat <<EOF >.devcontainer/devcontainer.json
 {
   "image": "debian:bookworm-slim",
   "features": {
@@ -11,6 +11,7 @@ cat <<EOF >.cache/$id/.devcontainer/devcontainer.json
   }
 }
 EOF
-devcontainer up --workspace-folder .cache/$id
-devcontainer exec --workspace-folder .cache/$id cmake --version
+ln -s "$feature_dir" "$PWD/.devcontainer/feature"
+devcontainer up
+devcontainer exec cmake --version
 echo "TODO: Kill container after test"
