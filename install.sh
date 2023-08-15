@@ -1,21 +1,33 @@
-#!/bin/bash
+#! /usr/bin/env bash
 set -ex
-source lib.sh
 
-check_packages wget
+CMAKE_VERSION="${VERSION:-latest}";
 
-if [[ -z $VERSION || $VERSION == latest ]]; then
-  # TODO: Fetch latest version
-  VERSION='3.27.2'
+# Ensure we're in this feature's directory during build
+cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";
+
+# install global/common scripts
+. ./common/install.sh;
+
+check_packages jq wget ca-certificates bash-completion pkg-config;
+
+echo "Downloading CMake...";
+
+if [[ "${CMAKE_VERSION}" == "latest" ]]; then
+    find_version_from_git_tags CMAKE_VERSION https://github.com/Kitware/CMake;
 fi
 
-mkdir -p /tmp/cmake
-pushd /tmp/cmake
-wget "https://github.com/Kitware/CMake/releases/download/v$VERSION/cmake-$VERSION-linux-$(uname -m).sh"
-chmod +x cmake-*.sh
-./cmake-*.sh --prefix=/usr/local --skip-license
-popd
-rm -rf /tmp/cmake
+wget --no-hsts -q -O /tmp/cmake_${CMAKE_VERSION}.sh \
+    https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-linux-$(uname -p).sh;
+
+echo "Installing CMake...";
+
+# Install CMake
+bash /tmp/cmake_${CMAKE_VERSION}.sh --skip-license --exclude-subdir --prefix=/usr;
 
 # Clean up
-rm -rf /var/lib/apt/lists/*
+# rm -rf /tmp/*;
+rm -rf /var/tmp/*;
+rm -rf /var/cache/apt/*;
+rm -rf /var/lib/apt/lists/*;
+rm -rf /tmp/cmake_${CMAKE_VERSION}.sh;

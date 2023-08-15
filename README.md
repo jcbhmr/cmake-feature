@@ -30,7 +30,7 @@
 
 This Dev Container Feature will install CMake using the official installer `.sh`
 script into the `/usr/local` folder. This should place it on your `$PATH` no
-problem! 🚀
+problem! 🚀 It also installs the [CMake VS Code extension].
 
 ## Usage
 
@@ -56,5 +56,7 @@ like this:
 - **`version`:** Choose a specific version to install. The default is `latest`.
   If specified, this should be a full `X.Y.Z` version number.
 
-<!-- prettier-ignore -->
+<!-- prettier-ignore-start -->
 [this vs code blog post]: https://code.visualstudio.com/blogs/2022/09/15/dev-container-features
+[cmake vs code extension]: https://marketplace.visualstudio.com/items?itemName=twxs.cmake
+<!-- prettier-ignore-end -->
