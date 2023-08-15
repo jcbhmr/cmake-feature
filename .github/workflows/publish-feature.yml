@@ -19,6 +19,4 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: jcbhmr/publish-feature@main
-        with:
-          image: ghcr.io/jcbhmr/features/cmake
+      - uses: devcontainers-community/publish-feature@v1
