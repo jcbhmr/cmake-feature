@@ -18,7 +18,7 @@ if [[ "${CMAKE_VERSION}" == "latest" ]]; then
 fi
 
 wget --no-hsts -q -O /tmp/cmake_${CMAKE_VERSION}.sh \
-    https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-linux-$(uname -p).sh;
+    https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-linux-$(uname -m).sh;
 
 echo "Installing CMake...";
 
