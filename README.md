@@ -8,12 +8,6 @@
   <img width="500" src="https://i.imgur.com/hwiPvLS.png" />
 </p>
 
-<p align=center>
-  <a href="https://devcontainers.community/features-cmake/">Website</a>
-  | <a href="https://github.com/devcontainers-community/features-cmake">GitHub</a>
-  | <a href="https://devcontainers.community/features/">Feature collection</a>
-</p>
-
 > CMake is an open-source, cross-platform family of tools designed to build,
 > test and package software. CMake is used to control the software compilation
 > process using simple platform and compiler independent configuration files,
