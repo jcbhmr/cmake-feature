@@ -1,7 +1,7 @@
 {
   "name": "CMake",
   "id": "cmake",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A feature to install CMake",
   "documentationURL": "https://github.com/devcontainers-community/features-cmake#readme",
   "options": {
