@@ -1,4 +1,4 @@
-[⬅️ Back to feature collection](https://devcontainers.community/features/)
+[⬅️ Back to feature collection](https://github.com/devcontainers-community/features/)
 
 # CMake Dev Container Feature
 
