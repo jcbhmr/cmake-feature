@@ -23,7 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        includes:
+        include:
           - image: mcr.microsoft.com/devcontainers/base:ubuntu
             options: '{ "version": "3.27.0" }'
           - image: debian:bookworm-slim
